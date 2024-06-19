@@ -1,9 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type ProductDocument = HydratedDocument<Product>;
+export type ServiceDocument = HydratedDocument<Service>;
+
 @Schema()
-export class Product {
+export class Service {
   @Prop({ unique: true })
   id: string;
 
@@ -17,9 +18,7 @@ export class Product {
   price: number;
 
   @Prop()
-  producer: string;
-
-  @Prop()
-  unit: string;
+  deposits: number;
 }
-export const ProductSchame = SchemaFactory.createForClass(Product);
+
+export const ServiceSchema = SchemaFactory.createForClass(Service);
